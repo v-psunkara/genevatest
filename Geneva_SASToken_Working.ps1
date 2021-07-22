@@ -36,20 +36,6 @@ param
 
 try
 {
-    <####################################
-    $configVersion             = "1.1"
-    $vmName                    = "TestvmName"
-    $StorageAccountName        = "genevastroageeast2"
-    $storageContainer          = "genevacontainer"
-    $genevaAgentBlobName       = "GenevaAgent.zip"
-    $genevaAccount             = "ENSNONPRODASSERTS"
-    $genevaEnvironment         = "DiagnosticsPROD"
-    $genevaNamespace           = "ENSNONPRODASSERTS" 
-    $genevaRegion              = "WestUS"
-    $certName                  = "enssrekeyvaultgeneva-genevacert.pfx"
-    $SASToken                  = "?sv=2020-08-04&ss=bfqt&srt=sco&sp=rwdlacuptfx&se=2021-07-31T19:46:59Z&st=2021-07-13T11:46:59Z&spr=https&sig=zoizbZYRvXU0ZqS%2FDWUoZAFQ7mGOf4it3GW8XwNd9%2F8%3D"
-    ####################################>
-
 
     $genevaPath = "C:\GenevaAgent"
     $storageBlobPath = "C:\StorageAccountBlob"
