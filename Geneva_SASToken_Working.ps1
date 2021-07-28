@@ -46,15 +46,16 @@ try
     $logsPath = "C:\$($vmName)-SetUpGenevaLogs.txt"
 
     ###### CREATE BLOB AND GENEVA DIRECTORY ###################
-
+    Unregister-ScheduledTask -TaskName "GenevaMonitoring" -Confirm:$false
+    
     if(Test-Path $storageBlobPath)
     {
-        Remove-Item -Path $storageBlobPath -Recurse
+        Remove-Item -Path $storageBlobPath -Recurse -Force
     }
 
     if(Test-Path $genevaPath)
     {
-        Remove-Item -Path $genevaPath -Recurse
+        Remove-Item -Path $genevaPath -Recurse -Force
     }
 
     mkdir $storageBlobPath
@@ -73,7 +74,7 @@ try
     $certThumbprint = (Get-PfxData -FilePath $certPath).EndEntityCertificates.Thumbprint
     #$certThumbprint = (Get-ChildItem -Path Cert:\LocalMachine\My | Where-Object {$_.Subject -match $certName}).Thumbprint;
     Add-Content -Path $logsPath -Value "Installing Geneva Agent"
-    Expand-Archive -Path $genevaFilePath -DestinationPath $genevaPath
+    Expand-Archive -Path $genevaFilePath -DestinationPath $genevaPath -Force
     
     ##### CONFIGURE AND RUN GENEVA AGENT ######################
 
